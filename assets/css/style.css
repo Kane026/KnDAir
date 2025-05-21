@@ -1,0 +1,145 @@
+*{
+	
+	  font-family: "ubuntu", sans-serif;
+	  font-weight: 700;
+	  font-style: normal;
+}
+
+body{
+  background-color: #00509D;
+	display: flex;
+	flex-direction: column;
+  margin: 0px;
+	padding: 0px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00296B;
+  height: 15vh;
+  width: 100%;
+}
+
+.knd-air-logo-header {
+  height: 12rem;
+
+}
+
+.header-right {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  gap: 10%;
+}
+
+.header-right a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+  .header a {
+    transition: transform 250ms;
+  }
+  
+  .header a:hover {
+    transform: translateY(-10px);
+    color: #ffd500;
+  }
+
+
+
+
+.knd-air-logo-header{
+    justify-content: center;
+}
+
+.banner-video {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.header-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.video-overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.video-title {
+  color: white;
+  font-size: 80px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+.fill-button {
+  position: relative;
+  padding: 10px 20px;
+  color: #ffd500;
+  border: 2px solid #ffd500;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease;
+  z-index: 1;
+  font-size: 16px;
+}
+
+.fill-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #ffd500;
+  z-index: -1;
+  transition: width 0.3s ease;
+}
+
+.fill-button:hover::before {
+  width: 100%;
+}
+
+.fill-button:hover {
+  color: white;
+}
+
+.login{
+    border-style: solid;
+    border-color: #ffd500;
+    color: #ffd500;
+    font-size: 20px;
+    padding: 5px 10px;
+    background: transparent;
+    margin: 20px;
+    cursor:pointer;
+}
+
+h1{
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 3%;
+}
+
+
+
