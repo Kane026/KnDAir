@@ -8,5 +8,5 @@
     <a href="#about">Over ons</a>
     <a href="#about">Contact</a>
   </div>
-  <button onclick="location.href='index.php'" class="login">login</button>
+  <button onclick="location.href='login.php'" class="login">login</button>
 </div>
