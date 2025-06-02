@@ -15,6 +15,7 @@
         <?php include('./includes/header.php') ?>
     </header>
     <main>
+        <section class="head">
         <div class="banner-video">
             <video class="header-video" autoplay muted loop playsinline>
                 <source src="assets/video/theme-park.mp4" type="video/mp4">
@@ -24,6 +25,42 @@
                 <button class="fill-button">Boek hier</button>
             </div>
         </div>
+        <div class="zoekbalk-containter">
+            <div class="zoekbalk-reizen">
+                <div class="zoekbalk">
+                    <form class="zoekformulier" action="search.php" method="GET">
+                        <div class="reisoptie">
+                            <label>
+                                <input type="radio" name="reis" value="retour" checked>
+                                Retour
+                            </label>
+                            <label>
+                                <input type="radio" name="reis" value="enkele">
+                                Enkele reis
+                            </label>
+                        </div>
+                        <div class="inputvelden-reis">
+                            <div class="van-naar-veld">
+                                <input type="text" name="van" placeholder="Vanaf" autocomplete="off" required>
+                                <input type="text" name="van" placeholder="Naar" autocomplete="off" required>
+                            </div>
+                            <div class="aantal-personen-veld">
+                                <input type="number" name="aantalpersonen" min="1" max="10" placeholder="Aantal Personen" autocomplete="off">
+                            </div>
+                            <div class="datum-velden">
+                                <input type="date" name="vertrek">
+                                <input type="date" name="terugkomst">
+                            </div>
+                        </div>
+                    <div class="zoekknop">
+                        <button type="submit">Zoeken</button>
+                    </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>    
+        </section>
         <div class="populaire-bestemmingen-container">
             <h1 class="populaire-bestemmingen-text">Populaire bestemmingen</h1>
             <div class="pop-bes-images">
@@ -34,7 +71,24 @@
                 <img src="assets/img/duitsland.png" alt="" class="duitsland-img">
             </div>
         </div>
+        <section class="accommodatie">
         <h1>Zoek op accommodatietypes</h1>
+            <div class="accommodatie-fotos">
+                <div class="hotel-container-home">
+                    <img src="assets/img/hotel-home.png" alt="" class="hotel-home-img">
+                    <h1 class="text-accommodatie-home">Hotels</h1>
+                </div>
+                <div class="resorts-container-home">
+                    <img src="assets/img/resorts-home.png" alt="" class="resorts-home-img">
+                    <h1 class="text-accommodatie-home">Resorts</h1>
+                </div>
+                <div class="villa-container-home">
+                    <img src="assets/img/villa-home.png" alt="" class="villa-home-img">
+                    <h1 class="text-accommodatie-home">Villas's</h1>
+                </div>
+            </div>
+            <button class="bekijk-accommodatie">bekijk alle accommodaties >></button>
+        </section>
     </main>
     </header>
 
