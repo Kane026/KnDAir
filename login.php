@@ -22,7 +22,7 @@
           <input type="text" name="username" placeholder="Gebruikersnaam" required />
           <input type="email" name="email" placeholder="E-mailadres" required />
           <input type="password" name="password" placeholder="Wachtwoord" required />
-          <input type="submit" value="Login" />
+          <input type="submit" value="Login"/>
         </form>
     </div>
   </main>
