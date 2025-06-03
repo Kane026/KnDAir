@@ -18,7 +18,7 @@
   <main class="login-outer">
     <div class="login-center">
       <div class="form-container">
-        <form method="post" action="./dbcalls/checklogin.php">
+        <form class="form-login" method="post" action="./dbcalls/checklogin.php">
           <input type="text" name="username" placeholder="Gebruikersnaam" required />
           <input type="email" name="email" placeholder="E-mailadres" required />
           <input type="password" name="password" placeholder="Wachtwoord" required />
