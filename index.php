@@ -63,12 +63,29 @@
         </section>
         <div class="populaire-bestemmingen-container">
             <h1 class="populaire-bestemmingen-text">Populaire bestemmingen</h1>
-            <div class="pop-bes-images">
-                <img src="assets/img/tokyo.png" alt="" class="tokyo-img">
-                <img src="assets/img/florida.png" alt="" class="florida-img">
-                <img src="assets/img/parijs.png" alt="" class="parijs-img">
-                <img src="assets/img/spanje.png" alt="" class="spanje-img">
-                <img src="assets/img/duitsland.png" alt="" class="duitsland-img">
+            <div class="pop-bes-images-row-one">
+                <div class="tokyo-container-home">    
+                    <img src="assets/img/tokyo.png" alt="" class="tokyo-img">
+                    <h1 class="text-bestemming-home">Tokyo</h1>
+                </div>    
+                <div class="florida-container-home">
+                    <img src="assets/img/florida.png" alt="" class="florida-img">
+                    <h1 class="text-bestemming-home">Florida</h1>
+                </div>
+            </div>
+            <div class="pop-bes-images-row-two">
+                <div class="parijs-container-home">
+                    <img src="assets/img/parijs.png" alt="" class="parijs-img">
+                    <h1 class="text-bestemming-home">Parijs</h1>
+                </div>
+                <div class="spanje-container-home">
+                    <img src="assets/img/spanje.png" alt="" class="spanje-img">
+                    <h1 class="text-bestemming-home">Spanje</h1>
+                </div>
+                <div class="duitsland-container-home">
+                    <img src="assets/img/duitsland.png" alt="" class="duitsland-img">
+                    <h1 class="text-bestemming-home">Duitsland</h1>
+                </div>
             </div>
         </div>
         <section class="accommodatie">
@@ -84,10 +101,10 @@
                 </div>
                 <div class="villa-container-home">
                     <img src="assets/img/villa-home.png" alt="" class="villa-home-img">
-                    <h1 class="text-accommodatie-home">Villas's</h1>
+                    <h1 class="text-accommodatie-home">Villa's</h1>
                 </div>
             </div>
-            <button class="bekijk-accommodatie">bekijk alle accommodaties >></button>
+            <button class="bekijk-accommodatie">Bekijk alle accommodaties >></button>
         </section>
     </main>
     </header>
