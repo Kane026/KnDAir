@@ -25,15 +25,15 @@ if(isset($_SESSION['username']))
         <h1>admin</h1>
     
         <section class="create">
-            <h2>CREATE</h2>
+            <h2>Type the flight information here</h2>
             <form action="./dbcalls/create.php" method="post">
-                <label for="">typ hier je gerechtnaam in:</label>
+                <label for="">Type the take off airport here:</label>
                 <input type="text" name="gerecht" id="1">
-                <label for="">typ hier je prijs in:</label>
+                <label for="">Type the landing airport here</label>
                 <input type="text" name="prijs" id="1">
-                <label for="">typ hier je imagelocatie in:</label>
+                <label for="">Type the duration of the flight here</label>
                 <input type="text" name="imagelocation" id="1">
-                <label for="">typ hier je beschrijving in:</label>
+                <label for="">Type the price</label>
                 <input type="text" name="beschrijving" id="1">
 
                 <input type="submit" value="submit">

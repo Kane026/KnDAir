@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KnDair</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - KnDair</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body class="color-login">
@@ -17,19 +17,20 @@
   <main class="login-outer">
     <div class="login-center">
       <div class="login-form-container">
-        <form class="form-login" method="post" action="./dbcalls/checklogin.php">
-          <input type="text" name="username" placeholder="Gebruikersnaam" required />
-          <input type="email" name="email" placeholder="E-mailadres" required />
-          <input type="password" name="password" placeholder="Wachtwoord" required />
+        <form class="form-login" method="post" action="./dbcalls/registeruser.php">
+          <h2>Register</h2>
 
-
-          <input type="submit" value="Login" />
-
-          <button type="button" onclick="window.location.href='register.php'">Register</button>
+          <input type="text" name="fullname" placeholder="Full name" required />
+          <input type="email" name="email" placeholder="E-mail" required />
+          <input type="password" name="password" placeholder="Password" required />
+          <input type="password" name="confirm_password" placeholder="Confirm password" required />
+          <input type="submit" value="Registrer" />
         </form>
       </div>
     </div>
   </main>
 
 </body>
+
 </html>
+
