@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <meta name="viewport" content="width=header, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>KnDair</title>
 </head>
-<body>
-    
+</head>
+<body class="color-login">
 
-    <form method="post" action="./dbcalls/checklogin.php">
-        <input type="text" name="username">
-        <input type="text" name="password">
-        <input type="submit" value="Login">
-    </form>
+  <header class="header">
+    <?php include('./includes/header.php'); ?>
+  </header>
 
+  <main class="login-outer">
+    <div class="login-center">
+      <div class="form-container">
+        <form method="post" action="./dbcalls/checklogin.php">
+          <input type="text" name="username" placeholder="Gebruikersnaam" required />
+          <input type="email" name="email" placeholder="E-mailadres" required />
+          <input type="password" name="password" placeholder="Wachtwoord" required />
+          <input type="submit" value="Login" />
+        </form>
+    </div>
+  </main>
 
 </body>
-</html> 
+</html>
