@@ -21,8 +21,10 @@
           <input type="text" name="username" placeholder="Gebruikersnaam" required />
           <input type="email" name="email" placeholder="E-mailadres" required />
           <input type="password" name="password" placeholder="Wachtwoord" required />
-         
+
+
           <input type="submit" value="Login" />
+
           <button type="button" onclick="window.location.href='register.php'">Register</button>
         </form>
       </div>
