@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>KnDair</title>
 </head>
-</head>
-
 <body>
     <header>
         <?php include('./includes/header.php') ?>
@@ -107,7 +105,6 @@
             <button class="bekijk-accommodatie">Bekijk alle accommodaties >></button>
         </section>
     </main>
-    </header>
 
     <footer>
 

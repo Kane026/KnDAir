@@ -301,3 +301,35 @@ html, body {
 }
 
 
+/* reizen */
+
+
+.reizen-container{
+  width: 100%;
+  height: 160vh;
+  color: white;
+  display: flex;
+  padding: 50px 0px 0px 100px;
+  box-sizing: border-box;
+}
+
+.reizen-blok{
+  width: 70%;
+  height: 30%;
+  background-color: white;
+  border-radius: 15px;
+  border-width: 3px;
+  border-color: #ffd500;
+  border-style: solid;
+}
+
+.reizen-blok-foto{
+height: 100%;
+width: 50%;
+}
+
+.reizen-blok-foto img {
+  width: 100%;
+  height: 100%; /* 🔑 Ensures image fills without distortion */
+  border-radius: 15px; /* Match parent’s border radius if needed */
+}

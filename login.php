@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>KnDair</title>
 </head>
-</head>
 <body class="color-login">
 
   <header class="header">
