@@ -1,12 +1,16 @@
 <?php
-$servername = "mariadb";
-$username = "admin";
-$password = "admin";
+$host = 'mariadb_server';  // ipv 'localhost'
+$db = 'KnDAir';
+$user = 'admin';
+$pass = 'admin';
+
+
+$dsn = "mysql:host=$host;dbname=$db;";
 
 try {
-  $conn = new PDO("mysql:host=$servername;dbname=KnDAir;port=3306;", $username, $password);
-
-} catch(PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
+    $conn = new PDO($dsn, $user, $pass);
+} catch (PDOException $e) {
+    die('Verbinding mislukt: ' . $e->getMessage());
 }
-?>
+
+
