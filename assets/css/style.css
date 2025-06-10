@@ -330,7 +330,7 @@ width: 50%;
 
 .reizen-blok-foto img {
   width: 100%;
-  height: 100%; /* 🔑 Ensures image fills without distortion */
-  border-radius: 15px; /* Match parent’s border radius if needed */
+  height: 100%; 
+  border-radius: 15px; 
 }
 
