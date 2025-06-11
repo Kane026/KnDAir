@@ -302,20 +302,27 @@ html, body {
 
 
 /* reizen */
-
+.reizen{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 
 .reizen-container{
   width: 100%;
   height: 160vh;
   color: white;
-  display: flex;
   padding: 50px 0px 0px 100px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
 }
 
 .reizen-blok{
+  display: flex;
   width: 70%;
-  height: 30%;
+  height: 35%;
   background-color: white;
   border-radius: 15px;
   border-width: 3px;
@@ -330,6 +337,20 @@ width: 50%;
 
 .reizen-blok-foto img {
   width: 100%;
-  height: 100%; /* 🔑 Ensures image fills without distortion */
-  border-radius: 15px; /* Match parent’s border radius if needed */
+  height: 100%; 
+  border-radius: 15px; 
+}
+
+.reizen-blok-info {
+  width: 50%;
+  box-sizing: border-box;
+  color: black;
+  padding: 0px 0px 0px 30px;
+}
+
+.reizen-blok-info-links{
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+padding: 0px 20px 20px 0px;
 }
