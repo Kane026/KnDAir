@@ -1,109 +1,103 @@
 <?php
 session_start();
-if (isset($_SESSION['username'])):
+if (!isset($_SESSION['username'])) {
+    header("location: ../index.php");
+    exit;
+}
+
+include('./dbcalls/conn.php');
+include('./dbcalls/read_flights.php');
+include('./dbcalls/read_hotels.php');
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Admin Panel</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
     <?php include('./includes/header.php'); ?>
     <main>
-        <h1>Admin</h1>
+        <h1>Admin Panel</h1>
 
-        <section class="create">
-            <h2>Voeg vlucht toe</h2>
-            <form action="./dbcalls/create.php" method="post">
-                <label for="takeoff">Vertrek luchthaven:</label>
-                <input type="text" name="Takeoff" id="takeoff">
-
-                <label for="landing">Aankomst luchthaven:</label>
-                <input type="text" name="Landing" id="landing">
-
-                <label for="duration">Duur:</label>
-                <input type="text" name="Duration" id="duration">
-
-                <input type="submit" value="Toevoegen">
+        <section class="admin-form-wrapper">
+            <h2>Vlucht Toevoegen</h2>
+            <form class="admin-form" action="./dbcalls/create.php" method="post">
+                <input type="hidden" name="entity" value="flight">
+                <label>Vertrek luchthaven:</label>
+                <input type="text" name="Takeoff" required>
+                <label>Aankomst luchthaven:</label>
+                <input type="text" name="Landing" required>
+                <label>Vluchtduur:</label>
+                <input type="text" name="Duration" required>
+                <input type="submit" value="Vlucht toevoegen">
             </form>
 
-            <h2>Voeg hotel toe</h2>
-            <form action="./dbcalls/create_hotel.php" method="post">
-                <label for="aankomst">Aankomst (YYYY-MM-DD):</label>
-                <input type="date" name="Aankomst" id="aankomst">
-
-                <label for="vertrek">Vertrek (YYYY-MM-DD):</label>
-                <input type="date" name="Vertrek" id="vertrek">
-
-                <label for="prijs">Prijs:</label>
-                <input type="number" name="Prijs" step="0.01" id="prijs">
-
-                <label for="aantal">Aantal personen:</label>
-                <input type="number" name="AantalPersonen" id="aantal">
-
+            <h2>Hotel Toevoegen</h2>
+            <form class="admin-form" action="./dbcalls/create.php" method="post">
+                <input type="hidden" name="entity" value="hotel">
+                <label>Aankomst datum:</label>
+                <input type="date" name="Aankomst" required>
+                <label>Vertrek datum:</label>
+                <input type="date" name="Vertrek" required>
+                <label>Prijs:</label>
+                <input type="number" name="Prijs" step="0.01" required>
+                <label>Aantal personen:</label>
+                <input type="number" name="AantalPersonen" required>
                 <label>
-                    <input type="checkbox" name="Tickets" value="1"> Tickets inbegrepen
+                    <input type="checkbox" name="Tickets"> Inclusief tickets
                 </label>
-
-                <input type="submit" value="Toevoegen">
+                <input type="submit" value="Hotel toevoegen">
             </form>
         </section>
 
-        <h2>Vluchten beheren</h2>
-        <section class="admin">
-            <?php
-            include("./dbcalls/conn.php");
-            include('./dbcalls/read.php');
-            foreach ($result as $value):
-            ?>
-                <form action="./dbcalls/update.php" method="post">
-                    <input type="hidden" name="id" value="<?= $value['id']; ?>">
-                    <input type="text" name="Takeoff" value="<?= $value['Takeoff']; ?>">
-                    <input type="text" name="Landing" value="<?= $value['Landing']; ?>">
-                    <input type="text" name="Duration" value="<?= $value['Duration']; ?>">
+        <section class="admin-data-wrapper">
+            <h2>Vluchten Bewerken</h2>
+            <?php foreach ($result_flights as $flight): ?>
+                <form class="admin-form" action="./dbcalls/update.php" method="post">
+                    <input type="hidden" name="entity" value="flight">
+                    <input type="hidden" name="id" value="<?= $flight['id']; ?>">
+                    <input type="text" name="Takeoff" value="<?= $flight['Takeoff']; ?>">
+                    <input type="text" name="Landing" value="<?= $flight['Landing']; ?>">
+                    <input type="text" name="Duration" value="<?= $flight['Duration']; ?>">
                     <button type="submit">Update</button>
                 </form>
-                <form action="./dbcalls/delete.php" method="post">
-                    <input type="hidden" name="id" value="<?= $value['id']; ?>">
-                    <input type="submit" value="Delete">
+                <form class="admin-form delete-form" action="./dbcalls/delete.php" method="post">
+                    <input type="hidden" name="entity" value="flight">
+                    <input type="hidden" name="id" value="<?= $flight['id']; ?>">
+                    <input type="submit" value="Verwijder">
                 </form>
             <?php endforeach; ?>
-        </section>
 
-        <h2>Hotels beheren</h2>
-        <section class="admin">
-            <?php
-            include('./dbcalls/read_hotels.php');
-            foreach ($hotels as $hotel):
-            ?>
-                <form action="./dbcalls/update_hotel.php" method="post">
+            <h2>Hotels Bewerken</h2>
+            <?php foreach ($result_hotels as $hotel): ?>
+                <form class="admin-form" action="./dbcalls/update.php" method="post">
+                    <input type="hidden" name="entity" value="hotel">
                     <input type="hidden" name="id" value="<?= $hotel['id']; ?>">
                     <input type="date" name="Aankomst" value="<?= $hotel['Aankomst']; ?>">
                     <input type="date" name="Vertrek" value="<?= $hotel['Vertrek']; ?>">
                     <input type="number" name="Prijs" step="0.01" value="<?= $hotel['Prijs']; ?>">
                     <input type="number" name="AantalPersonen" value="<?= $hotel['AantalPersonen']; ?>">
                     <label>
-                        <input type="checkbox" name="Tickets" <?= $hotel['Tickets'] ? 'checked' : '' ?>> Tickets
+                        <input type="checkbox" name="Tickets" <?= $hotel['Tickets'] ? 'checked' : ''; ?>>
+                        Tickets inbegrepen
                     </label>
                     <button type="submit">Update</button>
                 </form>
-                <form action="./dbcalls/delete_hotel.php" method="post">
+                <form class="admin-form delete-form" action="./dbcalls/delete.php" method="post">
+                    <input type="hidden" name="entity" value="hotel">
                     <input type="hidden" name="id" value="<?= $hotel['id']; ?>">
-                    <input type="submit" value="Delete">
+                    <input type="submit" value="Verwijder">
                 </form>
             <?php endforeach; ?>
         </section>
 
-        <a class="active" href="index.php">Terug naar Home</a>
+        <div style="text-align: center; margin-top: 20px;">
+            <a class="fill-button" href="index.php">Terug naar Home</a>
+        </div>
     </main>
     <?php include('./includes/footer.php'); ?>
 </body>
 </html>
-
-<?php else:
-    header("Location: ../index.php");
-endif; ?>

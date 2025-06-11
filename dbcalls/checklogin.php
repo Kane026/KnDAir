@@ -14,7 +14,7 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if ($result) {
     $_SESSION['username'] = $result['username'];
-    header('Location: ../admin.php');
+    header('Location: ../index.php');
     exit();
 } else {
     echo 'loser';

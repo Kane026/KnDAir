@@ -7,6 +7,7 @@
     <a href="reizen.php">Reizen</a>
     <a href="over-ons.php">Over ons</a>
     <a href="contact.php">Contact</a>
+    <a href="mijnaccount.php">Mijn account</a>
   </div>
   <button onclick="location.href='login.php'" class="login">Login</button>
 </div>

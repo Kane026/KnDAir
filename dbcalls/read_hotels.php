@@ -1,7 +1,7 @@
 <?php
-include("conn.php");  // Zorgt voor verbinding met de juiste database (KnDAir)
-
-$stmt = $conn->prepare("SELECT * FROM Hotels;");
+if (!isset($conn)) {
+    include("conn.php");
+}
+$stmt = $conn->prepare("SELECT * FROM Hotels");
 $stmt->execute();
-$hotels = $stmt->fetchAll(PDO::FETCH_ASSOC);
-?>
+$result_hotels = $stmt->fetchAll(PDO::FETCH_ASSOC);
