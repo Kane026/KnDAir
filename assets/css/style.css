@@ -343,3 +343,59 @@ width: 50%;
 
 /* over ons page */
 
+/* footer */
+
+.footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+}
+
+.voorwaarden-footer,
+.privacy-policy-footer,
+.socials-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer p{
+  color: lightgray;
+  text-decoration: underline;
+}
+
+footer a{
+  text-decoration: none;
+  color: lightgray;
+  text-decoration: underline;
+}
+
+.privacy-beleid p{
+  color: white;
+}
+
+.container-privacy {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 10px;}
+
+.container-privacy h1 {
+  color: #005fa3;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  }
+
+.container-privacy h2 {
+  color: #005fa3;
+  font-size: 1.4em;
+  margin-top: 1.5em;
+}
+
+.container-privacy p {
+  line-height: 1.7;
+  margin: 1em 0;
+  }
