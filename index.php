@@ -8,64 +8,65 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>KnDair</title>
 </head>
+
 <body>
     <header>
         <?php include('./includes/header.php') ?>
     </header>
     <main>
         <section class="head">
-        <div class="banner-video">
-            <video class="header-video" autoplay muted loop playsinline>
-                <source src="assets/video/theme-park.mp4" type="video/mp4">
-            </video>
-            <div class="video-overlay-content">
-                <h1 class="video-title">KND AIR</h1>
-                <button class="fill-button">Boek hier</button>
-            </div>
-        </div>
-        <div class="zoekbalk-containter">
-            <div class="zoekbalk-reizen">
-                <div class="zoekbalk">
-                    <form class="zoekformulier" action="search.php" method="GET">
-                        <div class="reisoptie">
-                            <label>
-                                <input type="radio" name="reis" value="retour" checked>
-                                Retour
-                            </label>
-                            <label>
-                                <input type="radio" name="reis" value="enkele">
-                                Enkele reis
-                            </label>
-                        </div>
-                        <div class="inputvelden-reis">
-                            <div class="van-naar-veld">
-                                <input type="text" name="van" placeholder="Vanaf" autocomplete="off" required>
-                                <input type="text" name="van" placeholder="Naar" autocomplete="off" required>
-                            </div>
-                            <div class="aantal-personen-veld">
-                                <input type="number" name="aantalpersonen" min="1" max="10" placeholder="Aantal Personen" autocomplete="off">
-                            </div>
-                            <div class="datum-velden">
-                                <input type="date" name="vertrek">
-                                <input type="date" name="terugkomst">
-                            </div>
-                        </div>
-                    <div class="zoekknop">
-                        <button type="submit">Zoeken</button>
-                    </div>
-                    </form>
-                    
+            <div class="banner-video">
+                <video class="header-video" autoplay muted loop playsinline>
+                    <source src="assets/video/theme-park.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay-content">
+                    <h1 class="video-title">KND AIR</h1>
+                    <button class="fill-button">Boek hier</button>
                 </div>
             </div>
-        </div>    
+            <div class="zoekbalk-containter">
+                <div class="zoekbalk-reizen">
+                    <div class="zoekbalk">
+                        <form class="zoekformulier" action="search.php" method="GET">
+                            <div class="reisoptie">
+                                <label>
+                                    <input type="radio" name="reis" value="retour" checked>
+                                    Retour
+                                </label>
+                                <label>
+                                    <input type="radio" name="reis" value="enkele">
+                                    Enkele reis
+                                </label>
+                            </div>
+                            <div class="inputvelden-reis">
+                                <div class="van-naar-veld">
+                                    <input type="text" name="van" placeholder="Vanaf" autocomplete="off" required>
+                                    <input type="text" name="van" placeholder="Naar" autocomplete="off" required>
+                                </div>
+                                <div class="aantal-personen-veld">
+                                    <input type="number" name="aantalpersonen" min="1" max="10" placeholder="Aantal Personen" autocomplete="off">
+                                </div>
+                                <div class="datum-velden">
+                                    <input type="date" name="vertrek">
+                                    <input type="date" name="terugkomst">
+                                </div>
+                            </div>
+                            <div class="zoekknop">
+                                <button type="submit">Zoeken</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
         </section>
         <div class="populaire-bestemmingen-container">
             <h1 class="populaire-bestemmingen-text">Populaire bestemmingen</h1>
             <div class="pop-bes-images-row-one">
-                <div class="tokyo-container-home">    
+                <div class="tokyo-container-home">
                     <img src="assets/img/tokyo.png" alt="" class="tokyo-img">
                     <h1 class="text-bestemming-home">Tokyo</h1>
-                </div>    
+                </div>
                 <div class="florida-container-home">
                     <img src="assets/img/florida.png" alt="" class="florida-img">
                     <h1 class="text-bestemming-home">Florida</h1>
@@ -87,7 +88,7 @@
             </div>
         </div>
         <section class="accommodatie">
-        <h1>Zoek op accommodatietypes</h1>
+            <h1>Zoek op accommodatietypes</h1>
             <div class="accommodatie-fotos">
                 <div class="hotel-container-home">
                     <img src="assets/img/hotel-home.png" alt="" class="hotel-home-img">

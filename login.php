@@ -7,7 +7,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <title>KnDair</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=header, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>KnDair</title>
 </head>
+
 <body class="color-login">
 
   <header class="header">
@@ -21,7 +27,7 @@
           <input type="text" name="username" placeholder="Gebruikersnaam" required />
           <input type="email" name="email" placeholder="E-mailadres" required />
           <input type="password" name="password" placeholder="Wachtwoord" required />
-         
+
           <input type="submit" value="Login" />
           <button type="button" onclick="window.location.href='register.php'">Register</button>
         </form>
@@ -30,4 +36,5 @@
   </main>
 
 </body>
+
 </html>

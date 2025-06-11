@@ -9,7 +9,6 @@
 </head>
 
 <body class="color-login">
-
   <header class="header">
     <?php include('./includes/header.php'); ?>
   </header>
@@ -20,17 +19,17 @@
         <form class="form-login" method="post" action="./dbcalls/registeruser.php">
           <h2>Register</h2>
 
-          <input type="text" name="fullname" placeholder="Full name" required />
+          <input type="text" name="username" placeholder="Full name" required />
           <input type="email" name="email" placeholder="E-mail" required />
           <input type="password" name="password" placeholder="Password" required />
           <input type="password" name="confirm_password" placeholder="Confirm password" required />
-          <input type="submit" value="Registrer" />
+          <input type="submit" value="Register" />
         </form>
       </div>
     </div>
   </main>
-
 </body>
 
 </html>
+
 
