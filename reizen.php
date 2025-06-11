@@ -19,9 +19,43 @@
             <div class="reizen-blok">
                 <div class="reizen-blok-foto">
                     <img src="assets/img/marvel-hotel.png" alt="">
+                </div>
+                <div class="reizen-blok-info">
                     <h2 class="reis-titel">Hotel New York art of Marvel</h2>
-                    <h3>location</h3>
-                    
+                    <h3 class="locatie-reis">Location</h3>
+                    <p class="beschrijving-reis">beschrijving</p> 
+                    <p class="included-title">included</p>
+                    <ul class="included-list">
+                        <li>tickets</li>
+                        <li>breakfast</li>
+                        <li>photopass</li>
+                    </ul>
+                    <div class="reizen-blok-info-links">
+                        <p class="aantal personen-reis">2 adults, 2 children</p>
+                        <p class="prijs-reis">€2340</p>
+                        <button class="beschikbaarheid-knop">Bekijk beschikbaarheid</button>
+                    </div>    
+                </div>
+            </div>
+            <div class="reizen-blok">
+                <div class="reizen-blok-foto">
+                    <img src="assets/img/marvel-hotel.png" alt="">
+                </div>
+                <div class="reizen-blok-info">
+                    <h2 class="reis-titel">Hotel New York art of Marvel</h2>
+                    <h3 class="locatie-reis">Location</h3>
+                    <p class="beschrijving-reis">beschrijving</p> 
+                    <p class="included-title">included</p>
+                    <ul class="included-list">
+                        <li>tickets</li>
+                        <li>breakfast</li>
+                        <li>photopass</li>
+                    </ul>
+                    <div class="reizen-blok-info-links">
+                        <p class="aantal personen-reis">2 adults, 2 children</p>
+                        <p class="prijs-reis">€2340</p>
+                        <button class="beschikbaarheid-knop">Bekijk beschikbaarheid</button>
+                    </div>    
                 </div>
             </div>
         </div>

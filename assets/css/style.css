@@ -302,20 +302,27 @@ html, body {
 
 
 /* reizen */
-
+.reizen{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 
 .reizen-container{
   width: 100%;
   height: 160vh;
   color: white;
-  display: flex;
   padding: 50px 0px 0px 100px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
 }
 
 .reizen-blok{
+  display: flex;
   width: 70%;
-  height: 30%;
+  height: 35%;
   background-color: white;
   border-radius: 15px;
   border-width: 3px;
