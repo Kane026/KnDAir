@@ -1,24 +1,75 @@
+<?php
+session_start();
+include("dbcalls/conn.php");
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
+$user_id = $_SESSION['user_id'];
+
+$sql = "SELECT username, email FROM Users WHERE id = :id LIMIT 1";
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
+$stmt->execute();
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$user) {
+    die("Gebruiker niet gevonden.");
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=header, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>KnDair</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mijn Account - KnDair</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body>
     <header>
-        <?php include('./includes/header.php') ?>
+        <?php include('./includes/header.php'); ?>
     </header>
-    <main>
 
+    <main class="account-container">
+        <h1>Mijn Account</h1>
+
+        <?php if (isset($_GET['success'])): ?>
+            <p class="success-message">Je gegevens zijn succesvol bijgewerkt!</p>
+        <?php elseif (isset($_GET['error'])): ?>
+            <p class="error-message"><?= htmlspecialchars($_GET['error']) ?></p>
+        <?php endif; ?>
+
+        <form method="post" action="update_account.php" class="account-form">
+            <label for="username">Gebruikersnaam:</label>
+            <input type="text" id="username" name="username" value="<?= htmlspecialchars($user['username']) ?>" required>
+
+            <label for="email">E-mailadres:</label>
+            <input type="email" id="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required>
+
+            <hr>
+
+            <h2>Wachtwoord wijzigen</h2>
+            <label for="current_password">Huidig wachtwoord:</label>
+            <input type="password" id="current_password" name="current_password" placeholder="Laat leeg als je wachtwoord niet wil wijzigen">
+
+            <label for="new_password">Nieuw wachtwoord:</label>
+            <input type="password" id="new_password" name="new_password" placeholder="Laat leeg als je wachtwoord niet wil wijzigen">
+
+            <label for="confirm_password">Bevestig nieuw wachtwoord:</label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Laat leeg als je wachtwoord niet wil wijzigen">
+
+            <button type="submit" class="btn-submit">Gegevens opslaan</button>
+        </form>
+
+        <form method="post" action="logout.php" style="margin-top: 20px;">
+            <button type="submit" class="btn-logout">Uitloggen</button>
+        </form>
     </main>
-    <footer>
-
-    </footer>
 </body>
 
 </html>

@@ -1,22 +1,36 @@
 <?php
-
-include('conn.php');
 session_start();
+include(__DIR__ . '/conn.php');
 
-$db_username = "root";      
-$db_password = "";      
-
-$stmt = $conn->prepare("SELECT * FROM Users WHERE username = :username AND password = :password");
-$stmt->bindParam(":username", $_POST['username']);
-$stmt->bindParam(":password", $_POST['password']); 
-$stmt->execute();
-$result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-if ($result) {
-    $_SESSION['username'] = $result['username'];
-    header('Location: ../index.php');
-    exit();
-} else {
-    echo 'loser';
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: ../login.php');
+    exit;
 }
-?>
+
+$username = trim($_POST['username'] ?? '');
+$email = trim($_POST['email'] ?? '');
+$password = trim($_POST['password'] ?? '');
+
+if ($username === '' || $email === '' || $password === '') {
+    die('Vul alle velden in.');
+}
+
+$sql = "SELECT id, password FROM Users WHERE username = :username AND email = :email LIMIT 1";
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':username', $username);
+$stmt->bindParam(':email', $email);
+$stmt->execute();
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$user) {
+    die('Gebruiker niet gevonden met deze combinatie.');
+}
+
+// Simpele vergelijking zonder hashing (Let op: zeer onveilig!)
+if ($password === $user['password']) {
+    $_SESSION['user_id'] = $user['id'];
+    header('Location: ../mijnaccount.php');
+    exit;
+} else {
+    die('Ongeldig wachtwoord.');
+}

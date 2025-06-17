@@ -9,7 +9,7 @@
 </head>
 
 <body class="color-login">
-
+    
     <header class="header">
         <?php include('./includes/header.php'); ?>
     </header>
@@ -29,7 +29,6 @@
         </div>
     </main>
 
-// Zorgt voor verbinding met de juiste database (KnDAir)
     <button id="secretAdminBtn" style="position: fixed; bottom: 10px; right: 10px; opacity: 0; width: 40px; height: 40px; z-index: 9999; cursor: pointer; border: none; background: none;"></button>
 
     <script>
