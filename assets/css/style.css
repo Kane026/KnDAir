@@ -399,3 +399,45 @@ footer a{
   line-height: 1.7;
   margin: 1em 0;
   }
+
+  /* update user */
+
+  .account-form {
+  background-color: white;
+  padding: 30px;
+  margin: 40px auto;
+  max-width: 500px;
+  border-radius: 10px;
+  border: 3px solid #ffd500;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.account-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.account-form input[type="text"],
+.account-form input[type="email"] {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.account-form input[type="submit"] {
+  margin-top: 20px;
+  background-color: #ffd500;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.account-form input[type="submit"]:hover {
+  background-color: #ffce00;
+}
