@@ -64,25 +64,25 @@
             <h1 class="populaire-bestemmingen-text">Populaire bestemmingen</h1>
             <div class="pop-bes-images-row-one">
                 <div class="tokyo-container-home">
-                    <img src="assets/img/tokyo.png" alt="" class="tokyo-img">
+                    <a href="locaties/japan-info.php"><img src="assets/img/tokyo.png" alt="" class="tokyo-img"></a>
                     <h1 class="text-bestemming-home">Tokyo</h1>
                 </div>
                 <div class="florida-container-home">
-                    <img src="assets/img/florida.png" alt="" class="florida-img">
+                    <a href="locaties/florida-info.php"><img src="assets/img/florida.png" alt="" class="florida-img"></a>
                     <h1 class="text-bestemming-home">Florida</h1>
                 </div>
             </div>
             <div class="pop-bes-images-row-two">
                 <div class="parijs-container-home">
-                    <img src="assets/img/parijs.png" alt="" class="parijs-img">
+                    <a href="locaties/parijs-info.php"><img src="assets/img/parijs.png" alt="" class="parijs-img"></a>
                     <h1 class="text-bestemming-home">Parijs</h1>
                 </div>
                 <div class="spanje-container-home">
-                    <img src="assets/img/spanje.png" alt="" class="spanje-img">
+                    <a href="locaties/spanje-info.php"><img src="assets/img/spanje.png" alt="" class="spanje-img"></a>
                     <h1 class="text-bestemming-home">Spanje</h1>
                 </div>
                 <div class="duitsland-container-home">
-                    <img src="assets/img/duitsland.png" alt="" class="duitsland-img">
+                    <a href="locaties/duitsland-info.php">><img src="assets/img/duitsland.png" alt="" class="duitsland-img"><a>
                     <h1 class="text-bestemming-home">Duitsland</h1>
                 </div>
             </div>

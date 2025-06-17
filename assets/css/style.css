@@ -308,6 +308,10 @@ html, body {
   gap: 40px;
 }
 
+.reizen p{
+color: black;
+}
+
 .reizen-container{
   width: 100%;
   height: 160vh;
@@ -345,32 +349,37 @@ width: 50%;
 
 /* footer */
 
-.footer{
+.footer {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  gap: 5%;
+  align-items: flex-start;
+  background-color: #00296B;
+  padding: 40px 0;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 100px;
+  position: relative;
 }
 
-.voorwaarden-footer,
-.privacy-policy-footer,
-.socials-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.footer-column {
+  min-width: 200px;
 }
 
-.footer p{
+.footer h1 {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.footer p,
+.footer a {
   color: lightgray;
   text-decoration: underline;
+  margin: 5px 0;
+  font-size: 1rem;
 }
 
-footer a{
-  text-decoration: none;
-  color: lightgray;
-  text-decoration: underline;
-}
+
 
 .privacy-beleid p{
   color: white;
@@ -399,3 +408,25 @@ footer a{
   line-height: 1.7;
   margin: 1em 0;
   }
+
+/* info-locaties */
+.info-page-container{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.info-country-text, .info-pretparken-text{
+  color: white;
+  max-width: 40%;
+}
+
+.info-page-container h2{
+  color: #ffd500;
+  text-align: center;
+}
+
+.info-page-container p{
+  text-align: center;
+}

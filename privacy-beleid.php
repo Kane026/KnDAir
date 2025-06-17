@@ -43,8 +43,9 @@
 
       <p>We gebruiken al je opgegeven gegevens voor verschillende dingen... o.a. verkopen op het darkweb. </p>
     </div>
+    </main>
     <footer>
-
+            <?php include('./includes/footer.php') ?>
     </footer>
 </body>
 
