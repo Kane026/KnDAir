@@ -430,3 +430,51 @@ flex-direction: column;
 .info-page-container p{
   text-align: center;
 }
+
+/* review page */
+.review-container {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.review-container strong {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.review-container br + br {
+    display: none;
+}
+
+form[name="createReview"] {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+}
+
+form[name="createReview"] input,
+form[name="createReview"] textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+form[name="createReview"] button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form[name="createReview"] button:hover {
+    background-color: #2980b9;
+}
