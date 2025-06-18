@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=header, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=header, initial-scale=1.0" />
     <title>KnDair</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body class="color-login">
-    
+
     <header class="header">
         <?php include('./includes/header.php'); ?>
     </header>
@@ -25,16 +25,18 @@
                     <input type="submit" value="Login" />
                     <button type="button" onclick="window.location.href='register.php'">Register</button>
                 </form>
+
+                <button id="secretAdminBtn" style="margin-top: 15px;">Admin</button>
             </div>
         </div>
     </main>
 
-    <button id="secretAdminBtn" style="position: fixed; bottom: 10px; right: 10px; opacity: 0; width: 40px; height: 40px; z-index: 9999; cursor: pointer; border: none; background: none;"></button>
-
     <script>
         document.getElementById('secretAdminBtn').addEventListener('click', function () {
             const code = prompt("Voer admincode in:");
-            if (code === "emile") { 
+            console.log("Ingevoerde code:", code);
+            if (code === "emile") {
+                alert("Code klopt! Je wordt doorgestuurd naar admin.");
                 window.location.href = "admin.php";
             } else {
                 alert("Ongeldige code.");

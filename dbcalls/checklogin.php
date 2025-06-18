@@ -26,9 +26,17 @@ if (!$user) {
     die('Gebruiker niet gevonden met deze combinatie.');
 }
 
-// Simpele vergelijking zonder hashing (Let op: zeer onveilig!)
+// Let op: onveilige wachtwoordcontrole – alleen voor leerdoeleinden
 if ($password === $user['password']) {
     $_SESSION['user_id'] = $user['id'];
+
+    // Admin check
+    $adminSql = "SELECT COUNT(*) FROM Admins WHERE user_id = :user_id";
+    $adminStmt = $conn->prepare($adminSql);
+    $adminStmt->bindParam(':user_id', $user['id']);
+    $adminStmt->execute();
+    $_SESSION['is_admin'] = $adminStmt->fetchColumn() > 0;
+
     header('Location: ../mijnaccount.php');
     exit;
 } else {
