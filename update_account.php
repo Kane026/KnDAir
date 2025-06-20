@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Update username en email altijd
+   
     $sql = "UPDATE Users SET username = :username, email = :email WHERE id = :id";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':username', $username);
@@ -40,14 +40,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Wachtwoord wijzigen als velden zijn ingevuld
+
     if ($current_password !== '' || $new_password !== '' || $confirm_password !== '') {
         if ($new_password !== $confirm_password) {
             header("Location: mijnaccount.php?error=Wachtwoorden komen niet overeen.");
             exit;
         }
 
-        // Haal huidige hash op
         $stmt = $conn->prepare("SELECT password FROM Users WHERE id = :id");
         $stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
         $stmt->execute();
@@ -58,13 +57,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         }
 
-        // Controleer huidig wachtwoord
+
         if (!password_verify($current_password, $user['password'])) {
             header("Location: mijnaccount.php?error=Huidig wachtwoord is onjuist.");
             exit;
         }
-
-        // Hash nieuw wachtwoord en update
+        
         $new_password_hash = password_hash($new_password, PASSWORD_DEFAULT);
 
         $stmt = $conn->prepare("UPDATE Users SET password = :password WHERE id = :id");

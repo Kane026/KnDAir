@@ -26,7 +26,7 @@ if (!$user) {
     die('Gebruiker niet gevonden met deze combinatie.');
 }
 
-// Let op: onveilige wachtwoordcontrole – alleen voor leerdoeleinden
+
 if ($password === $user['password']) {
     $_SESSION['user_id'] = $user['id'];
 
