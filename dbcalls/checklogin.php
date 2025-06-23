@@ -37,7 +37,7 @@ if ($password === $user['password']) {
     $adminStmt->execute();
     $_SESSION['is_admin'] = $adminStmt->fetchColumn() > 0;
 
-    header('Location: ../mijnaccount.php');
+    header('Location: ./admin.php');
     exit;
 } else {
     die('Ongeldig wachtwoord.');
