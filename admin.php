@@ -133,8 +133,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['entity']) && isset($_P
         <input type="text" name="Takeoff" placeholder="Vertrek" required>
         <input type="text" name="Landing" placeholder="Aankomst" required>
         <input type="text" name="Duration" placeholder="Duur" required>
-
-        <!-- Juiste veldnamen voor nieuwe invoer -->
         <label>Datum Aankomst:
             <input type="date" name="Date-aankomst" required>
         </label>
@@ -145,8 +143,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['entity']) && isset($_P
         <button type="submit">Toevoegen</button>
     </form>
 </section>
-
-
 
     <hr>
 

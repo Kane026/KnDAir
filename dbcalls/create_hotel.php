@@ -1,49 +1,38 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-include("./conn.php");
+include("conn.php");
 
-if (!isset($_POST['Aankomst'], $_POST['Vertrek'], $_POST['Prijs'], $_POST['AantalPersonen'])) {
-    die('Formulier is incompleet ingevuld.');
-}
+if (isset($_POST['Aankomst']) && isset($_POST['Vertrek']) && isset($_POST['Prijs']) && isset($_POST['AantalPersonen'])) 
+    
+    $aankomst = $_POST['Aankomst'];
+    $vertrek = $_POST['Vertrek'];
+    $prijs = $_POST['Prijs'];
+    $aantal = $_POST['AantalPersonen'];
+    
+    if ($aankomst != "" && $vertrek != "" && $prijs > 0 && $aantal > 0) {
+        if (isset($_POST['Tickets'])) {
+            $tickets = 1;
+        } else {
+            $tickets = 0;
+        }
 
-$aankomst = trim($_POST['Aankomst']);
-$vertrek = trim($_POST['Vertrek']);
-$prijs = floatval($_POST['Prijs']);
-$aantalPersonen = intval($_POST['AantalPersonen']);
-$tickets = isset($_POST['Tickets']) ? 1 : 0;
+        echo "Aankomst: " . $aankomst . "<br>";
+        echo "Vertrek: " . $vertrek . "<br>";
+        echo "Prijs: " . $prijs . "<br>";
+        echo "Aantal Personen: " . $aantal . "<br>";
+        echo "Tickets: " . $tickets . "<br>";
 
-if ($aankomst === '' || $vertrek === '' || $prijs <= 0 || $aantalPersonen <= 0) {
-    die('Vul alle velden correct in.');
-}
-
-echo "Aankomst: $aankomst<br>";
-echo "Vertrek: $vertrek<br>";
-echo "Prijs: $prijs<br>";
-echo "Aantal Personen: $aantalPersonen<br>";
-echo "Tickets: " . ($tickets ? 'Ja' : 'Nee') . "<br>";
-
-$sql = "INSERT INTO Hotels (Aankomst, Vertrek, Prijs, AantalPersonen, Tickets) 
-        VALUES (:aankomst, :vertrek, :prijs, :aantalPersonen, :tickets)";
-$stmt = $conn->prepare($sql);
-
-try {
-    $stmt->bindParam(':aankomst', $aankomst);
-    $stmt->bindParam(':vertrek', $vertrek);
-    $stmt->bindParam(':prijs', $prijs);
-    $stmt->bindParam(':aantalPersonen', $aantalPersonen);
-    $stmt->bindParam(':tickets', $tickets);
-
-    if ($stmt->execute()) {
-        echo "Hotel succesvol toegevoegd!";
-        echo '<br><br><a href="../admin.php"><button>Terug naar Admin</button></a>';
+        $sql = "INSERT INTO Hotels (Aankomst, Vertrek, Prijs, AantalPersonen, Tickets) VALUES ('$aankomst', '$vertrek', '$prijs', '$aantal', '$tickets')";
+        
+        if ($conn->query($sql)) {
+            echo "Toegevoegd!";
+            echo '<br><a href="../admin.php"><button>Terug</button></a>';
     } else {
-        echo "Fout bij toevoegen hotel.";
-        print_r($stmt->errorInfo());
+        echo "Vul alle velden in.";
     }
-} catch (PDOException $e) {
-    echo "PDO Exception: " . $e->getMessage();
+} else {
+    echo "Niet alles is ingevuld.";
 }
 ?>
