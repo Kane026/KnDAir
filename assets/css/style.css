@@ -504,3 +504,68 @@ form[name="createReview"] button {
 form[name="createReview"] button:hover {
     background-color: #2980b9;
 }
+
+/* contact page */
+/* Contactpagina */
+
+.container-contact {
+  background-color: white;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 15px;
+  border: 4px solid #ffd500;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.container-contact form label {
+  display: block;
+  margin-top: 1rem;
+  color: #00296B;
+  font-size: 1.1rem;
+}
+
+.container-contact input[type="text"],
+.container-contact textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: "ubuntu", sans-serif;
+  box-sizing: border-box;
+}
+
+.container-contact input[type="submit"] {
+  background-color: #ffd500;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.container-contact input[type="submit"]:hover {
+  background-color: #e6c200;
+}
+
+.container-text {
+  max-width: 600px;
+  margin: 0 auto 60px;
+  padding: 1rem 2rem;
+  background-color: #00296B;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.container-text h5 {
+  margin: 0.5rem 0;
+  font-weight: 700;
+  font-size: 1rem;
+}
