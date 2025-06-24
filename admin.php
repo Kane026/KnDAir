@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<header>
+    <?php include('./includes/header.php') ?>
+</header>
+
 <?php
 // connect met de db van KnDar
 $conn = new mysqli("mariadb", "root", "root", "KnDAir");
@@ -183,23 +197,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['entity']) && isset($_P
         <?php endforeach; ?>
         <!-- hotel toevoegen met form-->
 <h3>Nieuw hotel toevoegen</h3>
-<form method="post">
+<form method="post" action="./dbcalls/create_hotel.php">
     <input type="hidden" name="entity" value="hotel">
     <input type="hidden" name="actie" value="toevoegen">
 
     <label>Hotelnaam:
-        <input type="text" name="Hotelnaam" required>
+        <input type="text" name="Naam" required>
     </label>
 
     <label>Beschrijving:
         <textarea name="Beschrijving" rows="4" cols="50" required></textarea>
     </label>
 
+    <label>Locatie:
+        <input type="text" name="Locatie" required>
+    </label><br>
+
     <label>Aankomst:
-        <input type="date" name="Aankomst" required>
+        <input type="date" name="Aankomst">
     </label>
     <label>Vertrek:
-        <input type="date" name="Vertrek" required>
+        <input type="date" name="Vertrek">
     </label>
     <label>Prijs:
         <input type="number" step="0.01" name="Prijs" required>
@@ -214,4 +232,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['entity']) && isset($_P
 
     <button type="submit">Toevoegen</button>
 </form>
-
+</body>
+</html>

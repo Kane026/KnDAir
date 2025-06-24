@@ -14,52 +14,27 @@
         <?php include('./includes/header.php') ?>
     </header>
     <main>
-    <section class="reizen">
-        <div class="reizen-container">
-            <div class="reizen-blok">
-                <div class="reizen-blok-foto">
-                    <img src="assets/img/marvel-hotel.png" alt="">
-                </div>
-                <div class="reizen-blok-info">
-                    <h2 class="reis-titel">Hotel New York art of Marvel</h2>
-                    <h3 class="locatie-reis">Location</h3>
-                    <p class="beschrijving-reis">beschrijving</p> 
-                    <p class="included-title">included</p>
-                    <ul class="included-list">
-                        <li>tickets</li>
-                        <li>breakfast</li>
-                        <li>photopass</li>
-                    </ul>
-                    <div class="reizen-blok-info-links">
-                        <p class="aantal personen-reis">2 adults, 2 children</p>
-                        <p class="prijs-reis">€2340</p>
-                        <button class="beschikbaarheid-knop">Bekijk beschikbaarheid</button>
-                    </div>    
-                </div>
-            </div>
-            <div class="reizen-blok">
-                <div class="reizen-blok-foto">
-                    <img src="assets/img/marvel-hotel.png" alt="">
-                </div>
-                <div class="reizen-blok-info">
-                    <h2 class="reis-titel">Hotel New York art of Marvel</h2>
-                    <h3 class="locatie-reis">Location</h3>
-                    <p class="beschrijving-reis">beschrijving</p> 
-                    <p class="included-title">included</p>
-                    <ul class="included-list">
-                        <li>tickets</li>
-                        <li>breakfast</li>
-                        <li>photopass</li>
-                    </ul>
-                    <div class="reizen-blok-info-links">
-                        <p class="aantal personen-reis">2 adults, 2 children</p>
-                        <p class="prijs-reis">€2340</p>
-                        <button class="beschikbaarheid-knop">Bekijk beschikbaarheid</button>
-                    </div>    
-                </div>
-            </div>
-        </div>
-    </section>
+         <?php
+
+include("./dbcalls/conn.php");
+include('./dbcalls/read_hotels.php');
+
+    echo '<div class="reizen-container">';
+//Het loopen van de database gegevens
+foreach ($result_hotels as $value) {
+    echo '<div class="reizen-blok">';
+
+    echo '<h2 class="hotel-naam">' . $value['Naam'] . '</h2>';
+    echo '<h3 class="hotel-locatie">' . $value['Locatie'] . '</h3>';
+    echo '<p class="hotel-beschrijving">' . $value['Beschrijving'] . '</p>';
+    echo '<p class="hotel-aantal-personen">Aantal personen: ' . $value['AantalPersonen'] . '</p>';
+    echo '<p class="hotel-prijs">Prijs: €' . $value['Prijs'] . '</p>';
+    echo '<button class="beschikbaarheid-knop">Bekijk beschikbaarheid</button>';
+    echo '</div>';
+}
+
+echo '</div>';
+?>
     </main>
     <footer>
 
