@@ -34,35 +34,38 @@
     $flightResult = $stmt->fetchAll();
 
     echo '<div class="volledige-reis-container">';
-        foreach ($hotelResult as $key => $value) {
+        foreach ($hotelResult as $hotel) {
+            foreach ($flightResult as $flight) {
             echo '<div class="reis-combinatie-blok">';
             //Het loopen van de database gegevens
             echo '<div class="hotel-blok">';
 
-            echo '<h2 class="hotel-naam">' . $value['Naam'] . '</h2>';
-            echo '<h3 class="hotel-locatie">' . $value['Locatie'] . '</h3>';
-            echo '<p class="hotel-beschrijving">' . $value['Beschrijving'] . '</p>';
-            echo '<p class="hotel-aantal-personen">Aantal personen: ' . $value['AantalPersonen'] . '</p>';
-            echo '<p class="hotel-prijs">Prijs: €' . $value['Prijs'] . '</p>';
+            echo '<h2 class="hotel-naam">' . $hotel['Naam'] . '</h2>';
+            echo '<h3 class="hotel-locatie">' . $hotel['Locatie'] . '</h3>';
+            echo '<p class="hotel-beschrijving">' . $hotel['Beschrijving'] . '</p>';
+            echo '<p class="hotel-aantal-personen">Aantal personen: ' . $hotel['AantalPersonen'] . '</p>';
+            echo '<p class="hotel-prijs">Prijs: €' . $hotel['Prijs'] . '</p>';
             echo '</div>';
         
 
 
         echo '<div class="vluchten-container">';
-        foreach ($flightResult as $key => $value) {
 
             //Het loopen van de database gegevens
             echo '<div class="vlucht-blok">';
-            echo '<h2 class="vlucht-titel">Vlucht naar ' . $value['Landing'] . '</h2>';
-            echo '<p class="vlucht-vertrek">Vertrek: ' . ($value['Takeoff']) . '</p>';
-            echo '<p class="vlucht-duur">Duur: ' . ($value['Duration']) . ' uur</p>';
+            echo '<h2 class="vlucht-titel">Vlucht naar ' . $flight['Landing'] . '</h2>';
+            echo '<p class="vlucht-vertrek">Vertrek: ' . ($flight['Takeoff']) . '</p>';
+            echo '<p class="vlucht-duur">Duur: ' . ($flight['Duration']) . ' uur</p>';
             echo '</div>';
         }
-        
+        echo '<form method="post" action="boek_reis.php">';
+        echo '<input type="hidden" name="hotel_id" value="' . $hotel['id'] . '">';
+        echo '<input type="hidden" name="flight_id" value="' . $flight['id'] . '">';
+        echo '<button type="submit" class="beschikbaarheid-knop">Boek deze reis</button>';
+        echo '</form>';
         echo '</div>';
 
         echo '</div>';
-         echo '<button class="beschikbaarheid-knop">Bekijk beschikbaarheid</button>';
     }    
         
     echo '</div>';
