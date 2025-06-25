@@ -557,8 +557,6 @@ form[name="createReview"] button:hover {
 
 /* over ons page */
 
-/* Algemene styling */
-/* Algemene tekst voor 'Over ons' sectie */
 .over-ons-tekst {
   max-width: 800px;
   margin: 2rem auto;
@@ -661,3 +659,77 @@ form[name="createReview"] button:hover {
   gap: 40px;
 }
 
+/* contact */
+.contactpage-container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px 30px;
+    background-color: white;
+    border: 3px solid #2980b9; /* Duidelijke blauwe rand */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.contactpage-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.contactpage-message {
+    background-color: #dff0d8;
+    border: 1px solid #3c763d;
+    color: #3c763d;
+    padding: 15px;
+    border-radius: 5px;
+    max-width: 500px;
+    margin: 10px auto 30px;
+    text-align: center;
+}
+
+.contactpage-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.contactpage-form label {
+    font-weight: bold;
+    color: #34495e;
+}
+
+.contactpage-form input[type="text"],
+.contactpage-form input[type="email"],
+.contactpage-form textarea {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.contactpage-form input[type="text"]:focus,
+.contactpage-form input[type="email"]:focus,
+.contactpage-form textarea:focus {
+    border-color: #2980b9;
+    outline: none;
+}
+
+.contactpage-form input[type="submit"] {
+    padding: 18px;
+    font-size: 1.3rem;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contactpage-form input[type="submit"]:hover {
+    background-color: #1f618d;
+}

@@ -1,72 +1,71 @@
 <?php
-$message = "";
+// Database connectie
+try {
+    $conn = new PDO("mysql:host=mariadb;dbname=KnDAir;charset=utf8", "root", "root");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Databaseconnectie mislukt: " . $e->getMessage());
+}
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $naam = $_POST['fname'] ?? '';
+$bericht = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $naam = $_POST['naam'] ?? '';
     $email = $_POST['email'] ?? '';
-    $bericht = $_POST['subject'] ?? '';
+    $bericht_text = $_POST['bericht'] ?? '';
 
-    // ✅ Juiste verbinding voor jouw omgeving (zoals in admin page)
-    $conn = new mysqli("mariadb", "root", "root", "KnDAir");
+    if ($naam != '' && $email != '' && $bericht_text != '') {
+        $sql = "INSERT INTO Contact (Naam, Email, Bericht) VALUES (:naam, :email, :bericht)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':naam', $naam);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':bericht', $bericht_text);
 
-    if ($conn->connect_error) {
-        $message = "<p style='color: red;'>Verbinding mislukt: " . $conn->connect_error . "</p>";
-    } else {
-        $stmt = $conn->prepare("INSERT INTO Contact (Naam, Email, Bericht) VALUES (?, ?, ?)");
-        if ($stmt) {
-            $stmt->bind_param("sss", $naam, $email, $bericht);
-            if ($stmt->execute()) {
-                $message = "<p style='color: green;'>Bedankt voor je bericht, $naam!</p>";
-            } else {
-                $message = "<p style='color: red;'>Fout bij opslaan: " . $stmt->error . "</p>";
-            }
-            $stmt->close();
+        if ($stmt->execute()) {
+            $bericht = "Bedankt voor je bericht!";
         } else {
-            $message = "<p style='color: red;'>Fout bij voorbereiden statement: " . $conn->error . "</p>";
+            $bericht = "Er is iets misgegaan. Probeer het later opnieuw.";
         }
-        $conn->close();
+    } else {
+        $bericht = "Vul alstublieft alle velden in.";
     }
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KnDAir Contact</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contactpagina</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header>
-    <?php include('./includes/header.php'); ?>
-  </header>
 
-  <main>
-    <div class="container-contact">
-      <?php if (!empty($message)) echo $message; ?>
+<?php include 'includes/header.php'; ?>
 
-      <form method="POST" action="">
-        <label for="fname">Full Name</label>
-        <input type="text" id="fname" name="fname" placeholder="Your name.." required />
+<div class="contactpage-container">
+    <h1>Contacteer ons</h1>
 
-        <label for="lname">Email</label>
-        <input type="email" id="lname" name="email" placeholder="Your email.." required />
+    <?php if ($bericht): ?>
+        <div class="contactpage-message"><?php echo htmlspecialchars($bericht); ?></div>
+    <?php endif; ?>
 
-        <label for="subject">Subject</label>
-        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px" required></textarea>
+    <form class="contactpage-form" method="post" action="">
+        <label for="naam">Naam:</label>
+        <input type="text" id="naam" name="naam" required value="<?php echo htmlspecialchars($_POST['naam'] ?? ''); ?>" />
 
-        <input type="submit" value="Submit" />
-      </form>
-    </div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" />
 
-    <div class="container-text">
-      <div class="contact-text">
-        <h5>You can also contact me on:</h5>
-        <h5>Email: KnDAir@zuigme.com</h5>
-        <h5>Phone number: 06 13062175</h5>
-      </div>
-    </div>
-  </main>
+        <label for="bericht">Bericht:</label>
+        <textarea id="bericht" name="bericht" required><?php echo htmlspecialchars($_POST['bericht'] ?? ''); ?></textarea>
+
+        <input type="submit" value="Verstuur" />
+    </form>
+</div>
+
+<?php include 'includes/footer.php'; ?>
+
 </body>
 </html>
