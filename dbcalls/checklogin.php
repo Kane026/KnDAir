@@ -3,7 +3,7 @@ session_start();
 include(__DIR__ . '/conn.php');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: ../index.php'); // AANGEPAST: verwijst nu naar index.php buiten dbcalls
+    header('Location: ../index.php'); 
     exit;
 }
 
@@ -36,7 +36,7 @@ if ($password === $user['password']) {
     $adminStmt->execute();
     $_SESSION['is_admin'] = $adminStmt->fetchColumn() > 0;
 
-    header('Location: ../index.php'); // AANGEPAST: ook hier juiste pad
+    header('Location: ../index.php'); 
     exit;
 } else {
     die('Ongeldig wachtwoord.');
