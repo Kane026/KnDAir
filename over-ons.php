@@ -15,7 +15,6 @@
 
   <main>
     <div class="over-ons-tekst">
-  
       <p>
         Welcome to KnDair! We are passionate about aviation and proud to present
         our top pilots who ensure safety, excellence, and unforgettable experiences in the air.
@@ -59,6 +58,27 @@
           <p class="pilot-name">Emile Peniscooker</p>
           <p class="pilot-description">
             Loves cleaning others their trash and caring good for the boeing 747.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nieuwe sectie: Schoonmakers -->
+    <section class="our-cleaners">
+      <h1>Our Amazing Cleaners</h1>
+      <div class="cleaner-gallery">
+        <div class="pilot-card">
+          <img src="assets/img/kane1.png" alt="Kane" class="cleaner-img" />
+          <p class="pilot-name">Kanye Frentz </p>
+          <p class="pilot-description">
+            Kane makes sure every cabin shines like new before take-off. His dedication to cleanliness keeps passengers smiling.
+          </p>
+        </div>
+        <div class="pilot-card">
+          <img src="assets/img/dylan1.png" alt="Dylan" class="cleaner-img" />
+          <p class="pilot-name">Big Dill</p>
+          <p class="pilot-description">
+            Not only the greatest artist on the entire planet but also the best cleaner for all the airplanes around the world. 
           </p>
         </div>
       </div>

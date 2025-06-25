@@ -558,14 +558,7 @@ form[name="createReview"] button:hover {
 /* over ons page */
 
 /* Algemene styling */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  background: #f9f9f9;
-}
-
+/* Algemene tekst voor 'Over ons' sectie */
 .over-ons-tekst {
   max-width: 800px;
   margin: 2rem auto;
@@ -580,10 +573,12 @@ body {
 
 .over-ons-tekst p {
   font-size: 1.1rem;
-  color: #555;
+  color: gold; /* Veranderd naar goud */
   line-height: 1.5;
 }
 
+
+/* Afbeelding vliegtuig */
 .airplane1 {
   text-align: center;
   margin: 2rem 0;
@@ -593,9 +588,10 @@ body {
   max-width: 90%;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
+/* Piloten sectie */
 .our-pilots {
   max-width: 1000px;
   margin: 3rem auto;
@@ -608,10 +604,60 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Pilot galleries */
+/* Galerijen voor piloten en Emiles */
 .pilot-gallery,
 .emile-gallery {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
+
+/* Kaart stijl voor piloten en schoonmakers */
+.pilot-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Afbeeldingen binnen kaarten */
+.pilot-card img {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Naam en beschrijving in kaarten */
+.pilot-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.pilot-description {
+  color: #444;
+  font-size: 1rem;
+}
+
+/* Schoonmakers sectie */
+.our-cleaners {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.our-cleaners h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Galerij voor schoonmakers */
+.cleaner-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
