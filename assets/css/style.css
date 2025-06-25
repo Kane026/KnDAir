@@ -573,13 +573,7 @@ form[name="createReview"] button:hover {
 /* over ons page */
 
 /* Algemene styling */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  background: #f9f9f9;
-}
+
 
 .over-ons-tekst {
   max-width: 800px;
