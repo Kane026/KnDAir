@@ -520,10 +520,149 @@ form[name="createReview"] button:hover {
   border: 3px solid #ffd500;
   border-radius: 15px;
   box-sizing: border-box;
+}
+
+.container-contact input[type="submit"] {
+  background-color: #ffd500;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.container-contact input[type="submit"]:hover {
+  background-color: #e6c200;
+}
+
+.container-text {
+  max-width: 600px;
+  margin: 0 auto 60px;
+  padding: 1rem 2rem;
+  background-color: #00296B;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.container-text h5 {
+  margin: 0.5rem 0;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* over ons page */
+
+/* Algemene styling */
+/* Algemene tekst voor 'Over ons' sectie */
+.over-ons-tekst {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.over-ons-tekst h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.over-ons-tekst p {
+  font-size: 1.1rem;
+  color: gold; /* Veranderd naar goud */
+  line-height: 1.5;
+}
+
+
+/* Afbeelding vliegtuig */
+.airplane1 {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.boeing-img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Piloten sectie */
+.our-pilots {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.our-pilots h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Galerijen voor piloten en Emiles */
+.pilot-gallery,
+.emile-gallery {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
+
+/* Kaart stijl voor piloten en schoonmakers */
+.pilot-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Afbeeldingen binnen kaarten */
+.pilot-card img {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Naam en beschrijving in kaarten */
+.pilot-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.pilot-description {
+  color: #444;
+  font-size: 1rem;
+}
+
+/* Schoonmakers sectie */
+.our-cleaners {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.our-cleaners h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Galerij voor schoonmakers */
+.cleaner-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+
+
 
 .over-ons-tekst {
   max-width: 800px;

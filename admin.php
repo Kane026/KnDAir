@@ -1,14 +1,19 @@
 <?php
-// connect met de db van KnDar
-$conn = new mysqli("mariadb", "root", "root", "KnDAir");
+// Verbinden met de database via PDO
+try {
+    $conn = new PDO("mysql:host=mariadb;dbname=KnDAir;charset=utf8", "root", "root");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Databaseconnectie mislukt: " . $e->getMessage());
+}
 
-// haalt de vluchten op uit de db
-$result = $conn->query("SELECT * FROM Flights");
-$vluchten = $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
+// Haalt de vluchten op
+$stmt = $conn->query("SELECT * FROM Flights");
+$vluchten = $stmt ? $stmt->fetchAll(PDO::FETCH_ASSOC) : [];
 
-// haalt de hotels op uit de db      
-$result = $conn->query("SELECT * FROM Hotels");
-$hotels = $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
+// Haalt de hotels op
+$stmt = $conn->query("SELECT * FROM Hotels");
+$hotels = $stmt ? $stmt->fetchAll(PDO::FETCH_ASSOC) : [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['entity']) && isset($_POST['actie'])) {
     $entity = $_POST['entity'];
@@ -23,9 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['entity']) && isset($_P
             $dateVertrek = $_POST['Date-vertrek'];
 
             $stmt = $conn->prepare("INSERT INTO Flights (Takeoff, Landing, Duration, `Date-aankomst`, `Date-vertrek`) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssss", $takeoff, $landing, $duration, $dateAankomst, $dateVertrek);
-            $stmt->execute();
-
+            $stmt->execute([$takeoff, $landing, $duration, $dateAankomst, $dateVertrek]);
         } elseif ($entity == 'hotel') {
             $aankomst = $_POST['Aankomst'];
             $vertrek = $_POST['Vertrek'];
@@ -34,8 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['entity']) && isset($_P
             $tickets = isset($_POST['Tickets']) ? 1 : 0;
 
             $stmt = $conn->prepare("INSERT INTO Hotels (Aankomst, Vertrek, Prijs, AantalPersonen, Tickets) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("ssdii", $aankomst, $vertrek, $prijs, $aantalPersonen, $tickets);
-            $stmt->execute();
+            $stmt->execute([$aankomst, $vertrek, $prijs, $aantalPersonen, $tickets]);
         }
     } elseif ($actie == 'update') {
         if ($entity == 'flight') {
@@ -47,9 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['entity']) && isset($_P
             $dateVertrek = $_POST['Date-vertrek'];
 
             $stmt = $conn->prepare("UPDATE Flights SET Takeoff = ?, Landing = ?, Duration = ?, `Date-aankomst` = ?, `Date-vertrek` = ? WHERE id = ?");
-            $stmt->bind_param("sssssi", $takeoff, $landing, $duration, $dateAankomst, $dateVertrek, $id);
-            $stmt->execute();
-
+            $stmt->execute([$takeoff, $landing, $duration, $dateAankomst, $dateVertrek, $id]);
         } elseif ($entity == 'hotel') {
             $id = $_POST['id'];
             $aankomst = $_POST['Aankomst'];
@@ -59,20 +59,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['entity']) && isset($_P
             $tickets = isset($_POST['Tickets']) ? 1 : 0;
 
             $stmt = $conn->prepare("UPDATE Hotels SET Aankomst = ?, Vertrek = ?, Prijs = ?, AantalPersonen = ?, Tickets = ? WHERE id = ?");
-            $stmt->bind_param("ssdiii", $aankomst, $vertrek, $prijs, $aantalPersonen, $tickets, $id);
-            $stmt->execute();
+            $stmt->execute([$aankomst, $vertrek, $prijs, $aantalPersonen, $tickets, $id]);
         }
     } elseif ($actie == 'delete') {
         $id = $_POST['id'];
 
         if ($entity == 'flight') {
             $stmt = $conn->prepare("DELETE FROM Flights WHERE id = ?");
-            $stmt->bind_param("i", $id);
-            $stmt->execute();
+            $stmt->execute([$id]);
         } elseif ($entity == 'hotel') {
             $stmt = $conn->prepare("DELETE FROM Hotels WHERE id = ?");
-            $stmt->bind_param("i", $id);
-            $stmt->execute();
+            $stmt->execute([$id]);
         }
     }
 
@@ -83,11 +80,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['entity']) && isset($_P
 
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <title>Admin Panel - Vluchten en Hotels</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
     <header>
         <?php include('./includes/header.php') ?>
@@ -207,4 +206,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['entity']) && isset($_P
         </form>
     </section>
 </body>
+
 </html>
