@@ -69,6 +69,55 @@ if (!$user) {
         <form method="post" action="logout.php" style="margin-top: 20px;">
             <button type="submit" class="btn-logout">Uitloggen</button>
         </form>
+        <?php
+        $sql = "SELECT * FROM Bookings WHERE user_id = :user_id";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->execute();
+        $bookings = $stmt->fetchAll();
+        foreach ($bookings as $booking) {
+            $sqlHotel = "SELECT * FROM Hotels WHERE id = :hotel_id";
+            $stmtHotel = $conn->prepare($sqlHotel);
+            $stmtHotel->bindParam(':hotel_id', $booking['hotel_id']);
+            $stmtHotel->execute();
+            $hotel = $stmtHotel->fetch();
+
+            $sqlFlight = "SELECT * FROM Flights WHERE id = :flight_id";
+            $stmtFlight = $conn->prepare($sqlFlight);
+            $stmtFlight->bindParam(':flight_id', $booking['flight_id']);
+            $stmtFlight->execute();
+            $flight = $stmtFlight->fetch();
+
+
+            echo '<div class="reis-combinatie-blok">';
+            //Het loopen van de database gegevens
+            echo '<div class="hotel-blok">';
+
+            echo '<h2 class="hotel-naam">' . $hotel['Naam'] . '</h2>';
+            echo '<h3 class="hotel-locatie">' . $hotel['Locatie'] . '</h3>';
+            echo '<p class="hotel-beschrijving">' . $hotel['Beschrijving'] . '</p>';
+            echo '<p class="hotel-aantal-personen">Aantal personen: ' . $hotel['AantalPersonen'] . '</p>';
+            echo '<p class="hotel-prijs">Prijs: €' . $hotel['Prijs'] . '</p>';
+            echo '</div>';
+
+
+
+            echo '<div class="vluchten-container">';
+
+            //Het loopen van de database gegevens
+            echo '<div class="vlucht-blok">';
+            echo '<h2 class="vlucht-titel">Vlucht naar ' . $flight['Landing'] . '</h2>';
+            echo '<p class="vlucht-vertrek">Vertrek: ' . ($flight['Takeoff']) . '</p>';
+            echo '<p class="vlucht-duur">Duur: ' . ($flight['Duration']) . ' uur</p>';
+            echo '</div>';
+
+            echo '<form method="post" action="dbcalls/delete_reis.php">';
+            echo '<input type="hidden" name="ID" value="' . $booking['id'] . '">';
+            echo '<button>Verwijder booking</button>';
+            echo '</div>';
+        }
+        echo '</div>';
+        ?>
     </main>
 </body>
 
