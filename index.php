@@ -27,7 +27,7 @@
             <div class="zoekbalk-containter">
                 <div class="zoekbalk-reizen">
                     <div class="zoekbalk">
-                        <form class="zoekformulier" action="search.php" method="GET">
+                        <form class="zoekformulier" action="dbcalls/search.php" method="GET">
                             <div class="reisoptie">
                                 <label>
                                     <input type="radio" name="reis" value="retour" checked>
@@ -40,8 +40,8 @@
                             </div>
                             <div class="inputvelden-reis">
                                 <div class="van-naar-veld">
-                                    <input type="text" name="van" placeholder="Vanaf" autocomplete="off" required>
-                                    <input type="text" name="van" placeholder="Naar" autocomplete="off" required>
+                                    <input type="text" name="van" placeholder="Vanaf" autocomplete="off" >
+                                    <input type="text" name="naar" placeholder="Naar" autocomplete="off" >
                                 </div>
                                 <div class="aantal-personen-veld">
                                     <input type="number" name="aantalpersonen" min="1" max="10" placeholder="Aantal Personen" autocomplete="off">

@@ -89,6 +89,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['entity']) && isset($_P
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <header>
+        <?php include('./includes/header.php') ?>
+    </header>
     <h1>Admin Panel</h1>
 
     <section>
